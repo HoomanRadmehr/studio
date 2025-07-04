@@ -1,19 +1,43 @@
-# Business AI Agent
+📊 Business AI Agent
+This project implements a basic business intelligence agent using LangGraph, designed to analyze key business metrics and provide actionable feedback. It supports modular logic for analyzing profit, churn, growth, and other signals.
 
-This project is an AI-powered business data analyzer built using LangGraph. It processes business metrics such as profit, growth, churned customers, revenue, and costs to generate insights and alerts.
+🚀 Features
+Analyzes business KPIs like profit, churn, revenue growth, and CAC.
 
-## Features
+Provides feedback and alerts based on performance trends.
 
-- Analyze daily business data (profit, growth, churn rate, revenue, costs, etc.)
-- Generate warnings and alerts based on business performance
-- Designed to be extensible for various business analytics use cases
+Structured using LangGraph's graph-based workflow.
 
-## Usage
+Easily testable and extendable.
 
-The agent consumes business data in the following format:
+🧪 Test Coverage
+The project includes unit tests that cover different business scenarios:
 
-```json
-{
+📈 Positive profit and growth
+
+⚠️ Negative profit and churn increase
+
+🚨 Alert on CAC or other cost inefficiencies
+
+Run tests with:
+
+bash
+Copy
+Edit
+python3 -m unittest discover tests/
+🧠 Example Usage
+To run the agent with example input:
+
+bash
+Copy
+Edit
+python3 main.py
+Example input structure:
+
+python
+Copy
+Edit
+input_data = {
   "business_data": {
     "today": {
       "profit": 1000,
@@ -33,3 +57,58 @@ The agent consumes business data in the following format:
     }
   }
 }
+🛠️ Future Improvements
+This project is designed to be extended into a production-ready system:
+
+✅ Database Integration
+The agent can be improved to automatically gather and analyze business data from databases such as PostgreSQL or MongoDB.
+
+✅ API Support
+Input and output can be handled via REST or GraphQL APIs for integration with web or mobile applications.
+
+✅ Authentication & Security
+Future versions should include secure API endpoints and user authentication if exposed publicly.
+
+⚠️ Note: These features were not implemented in this version, as this is a test task focused on demonstrating core logic and reasoning.
+
+🐳 Docker Support
+You can build and run the project in a container:
+
+Dockerfile
+Dockerfile
+Copy
+Edit
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+CMD ["python", "main.py"]
+Build & Run
+bash
+Copy
+Edit
+docker build -t business-agent .
+docker run business-agent
+📂 File Structure
+css
+Copy
+Edit
+business_ai_agent/
+├── main.py
+├── graph.py
+├── schemas.py
+├── nodes/
+│   ├── analysis_node.py
+│   └── input_node.py
+├── tests/
+│   └── test_agent.py
+├── requirements.txt
+├── Dockerfile
+└── README.md
+🧾 License
+This code is provided for demonstration and testing purposes.
